@@ -22,6 +22,11 @@ app.use(
     credentials: true,
   })
 );
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+});
 app.use("/api/auth", limiter, authRouter);
 app.use("/api/user", userRouter)
 app.use("/api/course", courseRouter)
@@ -33,10 +38,7 @@ app.get('/favicon.ico', (req, res) => res.status(204).send());
 
 
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100
-});
+
 
 
 
