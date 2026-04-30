@@ -150,7 +150,6 @@ export const sendOtp = async (req, res) => {
   }
 };
 
-import crypto from "crypto"; // ✅ ensure present
 
 export const verifyOtp = async (req, res) => {
   try {
