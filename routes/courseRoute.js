@@ -6,7 +6,7 @@ import upload from "../middlewares/multer.js"
 let courseRouter = express.Router()
 
 courseRouter.post("/create",isAuth,createCourse)
-courseRouter.get("/getpublishedcoures",getPublishedCourses)
+courseRouter.get("/getpublishedcourses", getPublishedCourses)
 courseRouter.get("/getcreatorcourses",isAuth,getCreatorCourses)
 courseRouter.post("/editcourse/:courseId",isAuth,upload.single("thumbnail"),editCourse)
 courseRouter.get("/getcourse/:courseId",isAuth,getCourseById)
