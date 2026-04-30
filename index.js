@@ -46,10 +46,22 @@ app.get("/" , (req,res)=>{
     res.send("Hello From Server")
 })
 
-app.listen(port , ()=>{
-    console.log("Server Started")
-    connectDb()
-})
+const startServer = async () => {
+  try {
+    await connectDb();
+    console.log("DB connected");
+
+    app.listen(port, () => {
+      console.log("Server Started");
+    });
+
+  } catch (error) {
+    console.error("DB error:", error);
+    process.exit(1);
+  }
+};
+
+startServer();
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
