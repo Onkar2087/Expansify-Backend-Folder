@@ -1,6 +1,5 @@
 import { genToken } from "../configs/token.js"
 import validator from "validator"
-
 import bcrypt from "bcryptjs"
 import User from "../models/userModel.js"
 import crypto from "crypto";
@@ -111,7 +110,6 @@ export const googleSignup = async (req,res) => {
     
 }
 
-import crypto from "crypto"; // ✅ make sure this is at top of file
 
 export const sendOtp = async (req, res) => {
   try {
